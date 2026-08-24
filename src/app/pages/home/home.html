@@ -1,0 +1,184 @@
+<main class="home-page">
+
+  <section class="hero">
+
+    <header class="topbar">
+
+      <div class="logo">
+        <span class="logo-icon">◉</span>
+        <span>EXPLORE O MUNDO</span>
+      </div>
+
+      <span class="topbar-text">
+        DESCUBRA O PLANETA
+      </span>
+
+    </header>
+
+
+    <div class="hero-content">
+
+      <div class="hero-text">
+
+        <span class="eyebrow">
+          UMA VOLTA PELO NOSSO PLANETA
+        </span>
+
+        <h1>
+          O mundo é
+          <span>seu para explorar.</span>
+        </h1>
+
+        <p>
+          Descubra países, culturas e lugares incríveis.
+          Pesquise um país e conheça um pouco mais sobre
+          o nosso planeta.
+        </p>
+
+        <div class="search-area">
+
+          <label for="country-search">
+            QUAL PAÍS VOCÊ QUER CONHECER?
+          </label>
+
+          <div class="search-box">
+
+            <span class="search-icon">
+              🔎
+            </span>
+
+         <input
+  id="country-search"
+  type="text"
+  placeholder="Digite um país..."
+  [(ngModel)]="paisBusca"
+  (keyup.enter)="explorarPais()"
+>
+
+<button
+  type="button"
+  (click)="explorarPais()"
+>
+  {{ carregando ? 'Buscando...' : 'Explorar →' }}
+</button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="earth-area">
+
+        <div class="earth-glow"></div>
+
+        <img
+          src="earth.svg"
+          alt="Planeta Terra"
+          class="earth"
+        >
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="explore">
+
+    <div class="section-heading">
+
+      <div>
+
+        <span>EXPLORE</span>
+
+        <h2>
+          Descubra novos
+          <strong>lugares.</strong>
+        </h2>
+
+      </div>
+
+      <p>
+        Escolha uma região do mundo e comece
+        sua próxima descoberta.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+      <article class="card card-blue">
+
+        <span class="card-number">01</span>
+
+        <div class="card-symbol">✦</div>
+
+        <div class="card-info">
+          <small>REGIÃO</small>
+          <h3>Américas</h3>
+          <p>
+            Paisagens, culturas e histórias
+            de norte a sul.
+          </p>
+        </div>
+
+      </article>
+
+
+      <article class="card card-green">
+
+        <span class="card-number">02</span>
+
+        <div class="card-symbol">✦</div>
+
+        <div class="card-info">
+          <small>REGIÃO</small>
+          <h3>Europa</h3>
+          <p>
+            História, arte e cidades
+            fascinantes.
+          </p>
+        </div>
+
+      </article>
+
+
+      <article class="card card-orange">
+
+        <span class="card-number">03</span>
+
+        <div class="card-symbol">✦</div>
+
+        <div class="card-info">
+          <small>REGIÃO</small>
+          <h3>Ásia</h3>
+          <p>
+            Uma mistura de culturas,
+            sabores e tradições.
+          </p>
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    <span>
+      ◉ EXPLORE O MUNDO
+    </span>
+
+    <p>
+      Conheça o planeta, um país de cada vez.
+    </p>
+
+  </footer>
+
+</main>

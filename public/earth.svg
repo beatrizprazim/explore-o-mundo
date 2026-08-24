@@ -1,0 +1,410 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 500 500"
+  role="img"
+  aria-labelledby="title desc"
+>
+
+  <title id="title">Planeta Terra</title>
+  <desc id="desc">
+    Ilustração estilizada do planeta Terra vista do espaço.
+  </desc>
+
+  <defs>
+
+    <!-- Gradiente do oceano -->
+    <radialGradient id="ocean" cx="35%" cy="28%" r="75%">
+      <stop offset="0%" stop-color="#55b9d2"/>
+      <stop offset="45%" stop-color="#2187a5"/>
+      <stop offset="100%" stop-color="#07536f"/>
+    </radialGradient>
+
+    <!-- Brilho da atmosfera -->
+    <radialGradient id="atmosphere">
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="88%" stop-color="#bce8f2" stop-opacity=".22"/>
+      <stop offset="96%" stop-color="#8bd3e2" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Sombra do planeta -->
+    <linearGradient id="shadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".15"/>
+      <stop offset="55%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#062f42" stop-opacity=".55"/>
+    </linearGradient>
+
+    <!-- Continentes -->
+    <linearGradient id="land" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#78ad68"/>
+      <stop offset="100%" stop-color="#397b4d"/>
+    </linearGradient>
+
+    <!-- Recorte circular -->
+    <clipPath id="earthClip">
+      <circle cx="250" cy="250" r="185"/>
+    </clipPath>
+
+    <!-- Sombra externa -->
+    <filter id="planetShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow
+        dx="0"
+        dy="18"
+        stdDeviation="18"
+        flood-color="#173f45"
+        flood-opacity=".22"
+      />
+    </filter>
+
+  </defs>
+
+
+  <!-- ATMOSFERA -->
+
+  <circle
+    cx="250"
+    cy="250"
+    r="220"
+    fill="url(#atmosphere)"
+  />
+
+
+  <!-- PLANETA -->
+
+  <circle
+    cx="250"
+    cy="250"
+    r="185"
+    fill="url(#ocean)"
+    filter="url(#planetShadow)"
+  />
+
+
+  <g clip-path="url(#earthClip)">
+
+    <!-- LINHAS DE LATITUDE -->
+
+    <ellipse
+      cx="250"
+      cy="250"
+      rx="183"
+      ry="62"
+      fill="none"
+      stroke="#bde6ee"
+      stroke-width="1.5"
+      opacity=".18"
+    />
+
+    <ellipse
+      cx="250"
+      cy="250"
+      rx="183"
+      ry="120"
+      fill="none"
+      stroke="#bde6ee"
+      stroke-width="1.5"
+      opacity=".14"
+    />
+
+    <ellipse
+      cx="250"
+      cy="250"
+      rx="183"
+      ry="165"
+      fill="none"
+      stroke="#bde6ee"
+      stroke-width="1.5"
+      opacity=".10"
+    />
+
+
+    <!-- LINHAS DE LONGITUDE -->
+
+    <ellipse
+      cx="250"
+      cy="250"
+      rx="65"
+      ry="185"
+      fill="none"
+      stroke="#bde6ee"
+      stroke-width="1.5"
+      opacity=".14"
+    />
+
+    <ellipse
+      cx="250"
+      cy="250"
+      rx="125"
+      ry="185"
+      fill="none"
+      stroke="#bde6ee"
+      stroke-width="1.5"
+      opacity=".10"
+    />
+
+
+    <!-- AMÉRICA DO NORTE -->
+
+    <path
+      d="
+        M92 150
+        C108 131 126 119 147 113
+        C158 109 169 112 177 120
+        C185 128 181 137 172 143
+        C165 148 164 156 157 161
+        C151 166 145 166 138 171
+        C131 176 128 184 120 186
+        C112 188 104 182 102 174
+        C100 168 96 165 91 160
+        C87 157 88 153 92 150Z
+      "
+      fill="url(#land)"
+    />
+
+    <!-- AMÉRICA CENTRAL -->
+
+    <path
+      d="
+        M137 183
+        C143 185 149 190 151 197
+        C153 203 150 208 146 211
+        C142 208 138 204 135 200
+        C132 196 130 191 132 187
+        C133 185 135 184 137 183Z
+      "
+      fill="#4c9156"
+    />
+
+    <!-- AMÉRICA DO SUL -->
+
+    <path
+      d="
+        M151 210
+        C164 206 180 210 190 220
+        C200 230 201 244 198 257
+        C195 272 190 283 185 295
+        C180 307 177 323 168 334
+        C162 342 153 337 150 329
+        C146 319 149 308 145 299
+        C141 290 134 282 135 272
+        C136 262 141 256 143 247
+        C145 238 141 229 144 220
+        C146 215 148 212 151 210Z
+      "
+      fill="url(#land)"
+    />
+
+    <!-- EUROPA -->
+
+    <path
+      d="
+        M264 137
+        C276 130 291 129 303 135
+        C312 140 320 141 326 148
+        C332 155 327 161 320 163
+        C312 165 307 160 299 163
+        C292 166 287 171 279 169
+        C270 167 266 160 260 155
+        C255 150 257 142 264 137Z
+      "
+      fill="#72a965"
+    />
+
+    <!-- ÁSIA -->
+
+    <path
+      d="
+        M319 145
+        C335 135 352 137 367 145
+        C383 153 396 165 407 177
+        C414 185 415 196 407 201
+        C399 206 390 202 383 199
+        C375 196 367 197 360 201
+        C352 205 346 212 338 210
+        C330 207 327 198 321 192
+        C315 186 308 184 304 177
+        C300 169 307 162 313 157
+        C317 153 317 148 319 145Z
+      "
+      fill="url(#land)"
+    />
+
+    <!-- JAPÃO / ILHAS -->
+
+    <path
+      d="
+        M410 180
+        C416 177 421 181 422 187
+        C423 193 419 198 415 200
+        C411 201 408 197 409 192
+        C410 187 407 183 410 180Z
+      "
+      fill="#5c995b"
+    />
+
+    <!-- ÁFRICA -->
+
+    <path
+      d="
+        M273 194
+        C287 190 302 195 311 205
+        C320 215 319 229 316 241
+        C313 252 307 262 303 273
+        C298 286 295 301 287 312
+        C280 322 268 318 263 308
+        C258 298 261 286 258 277
+        C255 266 247 258 248 247
+        C249 236 256 228 259 218
+        C262 208 263 199 273 194Z
+      "
+      fill="url(#land)"
+    />
+
+    <!-- ORIENTE MÉDIO -->
+
+    <path
+      d="
+        M303 181
+        C314 180 326 184 331 192
+        C334 198 331 205 324 207
+        C317 209 311 204 306 200
+        C300 195 296 188 303 181Z
+      "
+      fill="#4e8c51"
+    />
+
+    <!-- ÍNDIA -->
+
+    <path
+      d="
+        M337 211
+        C345 213 351 220 350 228
+        C349 236 344 243 340 250
+        C336 256 330 252 328 245
+        C326 238 329 231 330 224
+        C331 218 331 214 337 211Z
+      "
+      fill="#579655"
+    />
+
+    <!-- SUDESTE ASIÁTICO -->
+
+    <path
+      d="
+        M356 222
+        C364 219 372 224 375 231
+        C378 238 374 244 369 247
+        C364 250 360 245 357 240
+        C353 234 350 226 356 222Z
+      "
+      fill="#4d8e53"
+    />
+
+    <!-- AUSTRÁLIA -->
+
+    <path
+      d="
+        M368 284
+        C382 277 400 280 410 289
+        C418 297 418 308 412 317
+        C406 326 394 331 382 328
+        C371 326 361 319 358 310
+        C355 300 360 289 368 284Z
+      "
+      fill="url(#land)"
+    />
+
+    <!-- MADAGASCAR -->
+
+    <path
+      d="
+        M329 293
+        C334 289 338 293 338 299
+        C338 306 334 314 330 318
+        C326 321 323 316 324 310
+        C325 303 324 297 329 293Z
+      "
+      fill="#4c8e52"
+    />
+
+
+    <!-- NUVENS -->
+
+    <g
+      fill="#ffffff"
+      opacity=".18"
+    >
+
+      <path
+        d="
+          M115 225
+          C125 217 138 218 145 226
+          C152 223 161 227 163 235
+          C153 241 141 242 129 239
+          C120 238 113 233 115 225Z
+        "
+      />
+
+      <path
+        d="
+          M222 112
+          C233 105 247 108 253 116
+          C263 112 273 117 275 126
+          C262 132 248 130 236 127
+          C226 125 218 120 222 112Z
+        "
+      />
+
+      <path
+        d="
+          M299 333
+          C311 326 326 330 330 339
+          C339 336 349 341 350 349
+          C338 355 323 355 311 352
+          C301 349 294 342 299 333Z
+        "
+      />
+
+    </g>
+
+
+    <!-- SOMBRA -->
+
+    <circle
+      cx="250"
+      cy="250"
+      r="185"
+      fill="url(#shadow)"
+    />
+
+  </g>
+
+
+  <!-- BORDA DA TERRA -->
+
+  <circle
+    cx="250"
+    cy="250"
+    r="185"
+    fill="none"
+    stroke="#b9e5ed"
+    stroke-width="4"
+    opacity=".65"
+  />
+
+
+  <!-- BRILHO SUPERIOR -->
+
+  <path
+    d="
+      M116 185
+      C137 122 192 80 257 72
+      C200 96 155 135 137 194
+      C130 217 126 238 127 257
+      C114 235 108 208 116 185Z
+    "
+    fill="#ffffff"
+    opacity=".10"
+  />
+
+</svg>
