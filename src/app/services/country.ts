@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
-import { environment } from '../../environments/environment';
 
 export interface CountryData {
   names: {
@@ -55,8 +54,7 @@ interface ApiResponse {
 })
 export class CountryService {
 
-  private apiUrl =
-    'https://api.restcountries.com/countries/v5';
+  private apiUrl = '/api/pais';
 
   constructor(
     private http: HttpClient
@@ -65,10 +63,10 @@ export class CountryService {
   buscarPais(nome: string): Observable<CountryData[]> {
 
     const url =
-      `${this.apiUrl}?q=${encodeURIComponent(nome)}&api-key=${environment.apiKey}`;
+      `${this.apiUrl}?nome=${encodeURIComponent(nome)}`;
 
-    console.log('CHAVE USADA:', environment.apiKey);
-    console.log('URL DA API:', url);
+    console.log('BUSCANDO PAÍS:', nome);
+    console.log('URL DO BACKEND:', url);
 
     return this.http
       .get<ApiResponse>(url)
