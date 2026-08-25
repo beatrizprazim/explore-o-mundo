@@ -1065,3 +1065,50 @@ footer p {
     grid-template-columns: 1fr;
   }
 }
+.region-result {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100%;
+  margin-top: 40px;
+  padding: 30px;
+  background: white;
+  border: 3px solid #167b98;
+  border-radius: 20px;
+  position: relative;
+  z-index: 100;
+}
+
+.region-result-header {
+  display: block !important;
+  color: #173f45;
+}
+
+.region-result-header h2 {
+  color: #173f45;
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+.region-countries {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.region-country {
+  display: flex !important;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f7faf8;
+  border-radius: 15px;
+}
+
+.region-country img {
+  display: block !important;
+  width: 70px;
+  height: 45px;
+  object-fit: cover;
+}
