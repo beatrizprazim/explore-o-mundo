@@ -11,21 +11,28 @@ export default async function handler(req, res) {
       });
     }
 
-    let url = 'https://api.restcountries.com/countries/v5';
+    let url;
 
+    // BUSCA POR PAÍS
     if (nome) {
       url =
         'https://api.restcountries.com/countries/v5?q=' +
         encodeURIComponent(nome) +
         '&api-key=' +
         apiKey;
-    } else if (regiao) {
+    }
+
+    // BUSCA POR REGIÃO
+    else if (regiao) {
       url =
         'https://api.restcountries.com/countries/v5?region=' +
         encodeURIComponent(regiao) +
         '&api-key=' +
         apiKey;
-    } else {
+    }
+
+    // NENHUM PARÂMETRO
+    else {
       return res.status(400).json({
         error: 'Informe o nome do país ou a região.'
       });
@@ -42,7 +49,9 @@ export default async function handler(req, res) {
     console.error('ERRO:', error);
 
     return res.status(500).json({
-      error: error instanceof Error ? error.message : String(error)
+      error: error instanceof Error
+        ? error.message
+        : String(error)
     });
   }
 }
