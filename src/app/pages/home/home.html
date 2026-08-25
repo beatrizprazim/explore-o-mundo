@@ -181,113 +181,118 @@
     </div>
 
 
-    <div class="cards">
+   <div class="cards">
 
-      <article class="card card-blue">
+  <article
+    class="card card-blue"
+    (click)="explorarRegiao('Americas')"
+  >
+    <span class="card-number">01</span>
 
-        <span class="card-number">
-          01
-        </span>
+    <div class="card-symbol">✦</div>
 
-        <div class="card-symbol">
-          ✦
-        </div>
+    <div class="card-info">
+      <small>REGIÃO</small>
 
-        <div class="card-info">
+      <h3>Américas</h3>
 
-          <small>
-            REGIÃO
-          </small>
-
-          <h3>
-            Américas
-          </h3>
-
-          <p>
-            Paisagens, culturas e histórias
-            de norte a sul.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="card card-green">
-
-        <span class="card-number">
-          02
-        </span>
-
-        <div class="card-symbol">
-          ✦
-        </div>
-
-        <div class="card-info">
-
-          <small>
-            REGIÃO
-          </small>
-
-          <h3>
-            Europa
-          </h3>
-
-          <p>
-            História, arte e cidades
-            fascinantes.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="card card-orange">
-
-        <span class="card-number">
-          03
-        </span>
-
-        <div class="card-symbol">
-          ✦
-        </div>
-
-        <div class="card-info">
-
-          <small>
-            REGIÃO
-          </small>
-
-          <h3>
-            Ásia
-          </h3>
-
-          <p>
-            Uma mistura de culturas,
-            sabores e tradições.
-          </p>
-
-        </div>
-
-      </article>
-
+      <p>
+        Paisagens, culturas e histórias
+        de norte a sul.
+      </p>
     </div>
+  </article>
 
-  </section>
+
+  <article
+    class="card card-green"
+    (click)="explorarRegiao('Europe')"
+  >
+    <span class="card-number">02</span>
+
+    <div class="card-symbol">✦</div>
+
+    <div class="card-info">
+      <small>REGIÃO</small>
+
+      <h3>Europa</h3>
+
+      <p>
+        História, arte e cidades
+        fascinantes.
+      </p>
+    </div>
+  </article>
 
 
-  <footer>
+  <article
+    class="card card-orange"
+    (click)="explorarRegiao('Asia')"
+  >
+    <span class="card-number">03</span>
 
-    <span>
-      ◉ EXPLORE O MUNDO
-    </span>
+    <div class="card-symbol">✦</div>
+
+    <div class="card-info">
+      <small>REGIÃO</small>
+
+      <h3>Ásia</h3>
+
+      <p>
+        Uma mistura de culturas,
+        sabores e tradições.
+      </p>
+    </div>
+  </article>
+
+</div>
+<!-- RESULTADO DA REGIÃO -->
+
+<div
+  class="region-result"
+  *ngIf="paisesRegiao.length > 0"
+>
+
+  <div class="region-result-header">
+    <span>REGIÃO SELECIONADA</span>
+
+    <h2>
+      {{ regiaoSelecionada }}
+    </h2>
 
     <p>
-      Conheça o planeta, um país de cada vez.
+      Países encontrados nessa região:
+      {{ paisesRegiao.length }}
     </p>
+  </div>
 
-  </footer>
 
-</main>
-```
+  <div class="region-countries">
+
+    <article
+      class="region-country"
+      *ngFor="let pais of paisesRegiao"
+    >
+
+      <img
+        [src]="pais.flag.url_png"
+        [alt]="'Bandeira de ' + pais.names.common"
+      >
+
+      <div>
+
+        <h3>
+          {{ pais.names.common }}
+        </h3>
+
+        <p>
+          {{ pais.capitals?.[0]?.name || 'Capital não informada' }}
+        </p>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</div>
