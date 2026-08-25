@@ -1,26 +1,30 @@
 import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CountryService, CountryData } from '../../services/country';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class Home {
 
-  paisBusca = '';
+  paisBusca: string = '';
 
   resultado: CountryData | null = null;
 
-  carregando = false;
+  carregando: boolean = false;
 
-  erro = '';
+  erro: string = '';
 
   private countryService = inject(CountryService);
 
   explorarPais(): void {
+
+    console.log('1 - INICIANDO BUSCA:', this.paisBusca);
 
     if (!this.paisBusca.trim()) {
       this.erro = 'Digite o nome de um país.';
@@ -32,13 +36,10 @@ export class Home {
     this.erro = '';
     this.resultado = null;
 
-    console.log('1 - INICIANDO BUSCA:', this.paisBusca);
-
     this.countryService
       .buscarPais(this.paisBusca.trim())
       .subscribe({
-
-        next: (paises) => {
+        next: (paises: CountryData[]) => {
 
           console.log('2 - RESPOSTA RECEBIDA:', paises);
           console.log('3 - QUANTIDADE DE PAÍSES:', paises.length);
@@ -55,26 +56,20 @@ export class Home {
 
           } else {
 
-            console.log('4 - NENHUM PAÍS ENCONTRADO');
-
             this.erro = 'País não encontrado.';
-          }
 
+          }
         },
 
-        error: (erro) => {
+        error: (error) => {
 
-          console.error('ERRO AO BUSCAR PAÍS:', erro);
+          console.error('ERRO AO BUSCAR PAÍS:', error);
 
           this.carregando = false;
 
-          this.erro =
-            'Não encontramos esse país. Tente novamente.';
+          this.erro = 'Não encontramos esse país. Tente novamente.';
 
         }
-
       });
-
   }
-
 }

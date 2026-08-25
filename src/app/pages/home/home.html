@@ -1,3 +1,4 @@
+```html
 <main class="home-page">
 
   <section class="hero">
@@ -35,6 +36,7 @@
           o nosso planeta.
         </p>
 
+
         <div class="search-area">
 
           <label for="country-search">
@@ -47,23 +49,93 @@
               🔎
             </span>
 
-         <input
-  id="country-search"
-  type="text"
-  placeholder="Digite um país..."
-  [(ngModel)]="paisBusca"
-  (keyup.enter)="explorarPais()"
->
+            <input
+              id="country-search"
+              type="text"
+              placeholder="Digite um país..."
+              [(ngModel)]="paisBusca"
+              (keyup.enter)="explorarPais()"
+            >
 
-<button
-  type="button"
-  (click)="explorarPais()"
->
-  {{ carregando ? 'Buscando...' : 'Explorar →' }}
-</button>
+            <button
+              type="button"
+              (click)="explorarPais()"
+              [disabled]="carregando"
+            >
+              {{ carregando ? 'Buscando...' : 'Explorar →' }}
+            </button>
 
           </div>
 
+        </div>
+
+
+        <!-- RESULTADO DO PAÍS -->
+
+        <div
+          class="country-result"
+          *ngIf="resultado"
+        >
+
+          <img
+            [src]="resultado.flag.url_png"
+            [alt]="'Bandeira de ' + resultado.names.common"
+          >
+
+          <div class="country-result-info">
+
+            <span>PAÍS ENCONTRADO</span>
+
+            <h2>
+              {{ resultado.names.common }}
+            </h2>
+
+            <p>
+              {{ resultado.names.official }}
+            </p>
+
+            <div class="country-details">
+
+              <div>
+                <small>CAPITAL</small>
+
+                <strong>
+                  {{ resultado.capitals?.[0]?.name || 'Não informado' }}
+                </strong>
+              </div>
+
+
+              <div>
+                <small>REGIÃO</small>
+
+                <strong>
+                  {{ resultado.region }}
+                </strong>
+              </div>
+
+
+              <div>
+                <small>POPULAÇÃO</small>
+
+                <strong>
+                  {{ resultado.population | number }}
+                </strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- MENSAGEM DE ERRO -->
+
+        <div
+          class="search-error"
+          *ngIf="erro"
+        >
+          {{ erro }}
         </div>
 
       </div>
@@ -113,17 +185,29 @@
 
       <article class="card card-blue">
 
-        <span class="card-number">01</span>
+        <span class="card-number">
+          01
+        </span>
 
-        <div class="card-symbol">✦</div>
+        <div class="card-symbol">
+          ✦
+        </div>
 
         <div class="card-info">
-          <small>REGIÃO</small>
-          <h3>Américas</h3>
+
+          <small>
+            REGIÃO
+          </small>
+
+          <h3>
+            Américas
+          </h3>
+
           <p>
             Paisagens, culturas e histórias
             de norte a sul.
           </p>
+
         </div>
 
       </article>
@@ -131,17 +215,29 @@
 
       <article class="card card-green">
 
-        <span class="card-number">02</span>
+        <span class="card-number">
+          02
+        </span>
 
-        <div class="card-symbol">✦</div>
+        <div class="card-symbol">
+          ✦
+        </div>
 
         <div class="card-info">
-          <small>REGIÃO</small>
-          <h3>Europa</h3>
+
+          <small>
+            REGIÃO
+          </small>
+
+          <h3>
+            Europa
+          </h3>
+
           <p>
             História, arte e cidades
             fascinantes.
           </p>
+
         </div>
 
       </article>
@@ -149,17 +245,29 @@
 
       <article class="card card-orange">
 
-        <span class="card-number">03</span>
+        <span class="card-number">
+          03
+        </span>
 
-        <div class="card-symbol">✦</div>
+        <div class="card-symbol">
+          ✦
+        </div>
 
         <div class="card-info">
-          <small>REGIÃO</small>
-          <h3>Ásia</h3>
+
+          <small>
+            REGIÃO
+          </small>
+
+          <h3>
+            Ásia
+          </h3>
+
           <p>
             Uma mistura de culturas,
             sabores e tradições.
           </p>
+
         </div>
 
       </article>
@@ -182,3 +290,4 @@
   </footer>
 
 </main>
+```
