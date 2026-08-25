@@ -1,206 +1,216 @@
-```html
 <main class="home-page">
 
   <section class="hero">
 
-    <header class="topbar">
+```
+<header class="topbar">
 
-      <div class="logo">
-        <span class="logo-icon">◉</span>
-        <span>EXPLORE O MUNDO</span>
-      </div>
+  <div class="logo">
+    <span class="logo-icon">◉</span>
+    <span>EXPLORE O MUNDO</span>
+  </div>
 
-      <span class="topbar-text">
-        DESCUBRA O PLANETA
-      </span>
+  <span class="topbar-text">
+    DESCUBRA O PLANETA
+  </span>
 
-    </header>
+</header>
 
+<div class="hero-content">
 
-    <div class="hero-content">
+  <div class="hero-text">
 
-      <div class="hero-text">
+    <span class="eyebrow">
+      UMA VOLTA PELO NOSSO PLANETA
+    </span>
 
-        <span class="eyebrow">
-          UMA VOLTA PELO NOSSO PLANETA
+    <h1>
+      O mundo é
+      <span>seu para explorar.</span>
+    </h1>
+
+    <p>
+      Descubra países, culturas e lugares incríveis.
+      Pesquise um país e conheça um pouco mais sobre
+      o nosso planeta.
+    </p>
+
+    <div class="search-area">
+
+      <label for="country-search">
+        QUAL PAÍS VOCÊ QUER CONHECER?
+      </label>
+
+      <div class="search-box">
+
+        <span class="search-icon">
+          🔎
         </span>
 
-        <h1>
-          O mundo é
-          <span>seu para explorar.</span>
-        </h1>
-
-        <p>
-          Descubra países, culturas e lugares incríveis.
-          Pesquise um país e conheça um pouco mais sobre
-          o nosso planeta.
-        </p>
-
-
-        <div class="search-area">
-
-          <label for="country-search">
-            QUAL PAÍS VOCÊ QUER CONHECER?
-          </label>
-
-          <div class="search-box">
-
-            <span class="search-icon">
-              🔎
-            </span>
-
-            <input
-              id="country-search"
-              type="text"
-              placeholder="Digite um país..."
-              [(ngModel)]="paisBusca"
-              (keyup.enter)="explorarPais()"
-            >
-
-            <button
-              type="button"
-              (click)="explorarPais()"
-              [disabled]="carregando"
-            >
-              {{ carregando ? 'Buscando...' : 'Explorar →' }}
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <!-- RESULTADO DO PAÍS -->
-
-        <div
-          class="country-result"
-          *ngIf="resultado"
+        <input
+          id="country-search"
+          type="text"
+          placeholder="Digite um país..."
+          [(ngModel)]="paisBusca"
+          (keyup.enter)="explorarPais()"
         >
 
-          <img
-            [src]="resultado.flag.url_png"
-            [alt]="'Bandeira de ' + resultado.names.common"
-          >
-
-          <div class="country-result-info">
-
-            <span>PAÍS ENCONTRADO</span>
-
-            <h2>
-              {{ resultado.names.common }}
-            </h2>
-
-            <p>
-              {{ resultado.names.official }}
-            </p>
-
-            <div class="country-details">
-
-              <div>
-                <small>CAPITAL</small>
-
-                <strong>
-                  {{ resultado.capitals?.[0]?.name || 'Não informado' }}
-                </strong>
-              </div>
-
-
-              <div>
-                <small>REGIÃO</small>
-
-                <strong>
-                  {{ resultado.region }}
-                </strong>
-              </div>
-
-
-              <div>
-                <small>POPULAÇÃO</small>
-
-                <strong>
-                  {{ resultado.population | number }}
-                </strong>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- MENSAGEM DE ERRO -->
-
-        <div
-          class="search-error"
-          *ngIf="erro"
+        <button
+          type="button"
+          (click)="explorarPais()"
+          [disabled]="carregando"
         >
-          {{ erro }}
-        </div>
-
-      </div>
-
-
-      <div class="earth-area">
-
-        <div class="earth-glow"></div>
-
-        <img
-          src="earth.svg"
-          alt="Planeta Terra"
-          class="earth"
-        >
+          {{ carregando ? 'Buscando...' : 'Explorar →' }}
+        </button>
 
       </div>
 
     </div>
+
+    <!-- RESULTADO DO PAÍS -->
+
+    <div
+      class="country-result"
+      *ngIf="resultado"
+    >
+
+      <img
+        [src]="resultado.flag.url_png"
+        [alt]="'Bandeira de ' + resultado.names.common"
+      >
+
+      <div class="country-result-info">
+
+        <span>PAÍS ENCONTRADO</span>
+
+        <h2>
+          {{ resultado.names.common }}
+        </h2>
+
+        <p>
+          {{ resultado.names.official }}
+        </p>
+
+        <div class="country-details">
+
+          <div>
+            <small>CAPITAL</small>
+
+            <strong>
+              {{ resultado.capitals?.[0]?.name || 'Não informado' }}
+            </strong>
+          </div>
+
+          <div>
+            <small>REGIÃO</small>
+
+            <strong>
+              {{ resultado.region }}
+            </strong>
+          </div>
+
+          <div>
+            <small>POPULAÇÃO</small>
+
+            <strong>
+              {{ resultado.population | number }}
+            </strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ERRO -->
+
+    <div
+      class="search-error"
+      *ngIf="erro"
+    >
+      {{ erro }}
+    </div>
+
+  </div>
+
+  <div class="earth-area">
+
+    <div class="earth-glow"></div>
+
+    <img
+      src="earth.svg"
+      alt="Planeta Terra"
+      class="earth"
+    >
+
+  </div>
+
+</div>
+```
 
   </section>
 
+  <!-- SEÇÃO DE REGIÕES -->
 
   <section class="explore">
 
-    <div class="section-heading">
+```
+<div class="section-heading">
 
-      <div>
+  <div>
 
-        <span>EXPLORE</span>
+    <span>EXPLORE</span>
 
-        <h2>
-          Descubra novos
-          <strong>lugares.</strong>
-        </h2>
+    <h2>
+      Descubra novos
+      <strong>lugares.</strong>
+    </h2>
 
-      </div>
+  </div>
 
-      <p>
-        Escolha uma região do mundo e comece
-        sua próxima descoberta.
-      </p>
+  <p>
+    Escolha uma região do mundo e comece
+    sua próxima descoberta.
+  </p>
 
-    </div>
+</div>
 
 
-   <div class="cards">
+<!-- CARDS -->
+
+<div class="cards">
 
   <article
     class="card card-blue"
     (click)="explorarRegiao('Americas')"
   >
-    <span class="card-number">01</span>
 
-    <div class="card-symbol">✦</div>
+    <span class="card-number">
+      01
+    </span>
+
+    <div class="card-symbol">
+      ✦
+    </div>
 
     <div class="card-info">
-      <small>REGIÃO</small>
 
-      <h3>Américas</h3>
+      <small>
+        REGIÃO
+      </small>
+
+      <h3>
+        Américas
+      </h3>
 
       <p>
         Paisagens, culturas e histórias
         de norte a sul.
       </p>
+
     </div>
+
   </article>
 
 
@@ -208,20 +218,32 @@
     class="card card-green"
     (click)="explorarRegiao('Europe')"
   >
-    <span class="card-number">02</span>
 
-    <div class="card-symbol">✦</div>
+    <span class="card-number">
+      02
+    </span>
+
+    <div class="card-symbol">
+      ✦
+    </div>
 
     <div class="card-info">
-      <small>REGIÃO</small>
 
-      <h3>Europa</h3>
+      <small>
+        REGIÃO
+      </small>
+
+      <h3>
+        Europa
+      </h3>
 
       <p>
         História, arte e cidades
         fascinantes.
       </p>
+
     </div>
+
   </article>
 
 
@@ -229,23 +251,37 @@
     class="card card-orange"
     (click)="explorarRegiao('Asia')"
   >
-    <span class="card-number">03</span>
 
-    <div class="card-symbol">✦</div>
+    <span class="card-number">
+      03
+    </span>
+
+    <div class="card-symbol">
+      ✦
+    </div>
 
     <div class="card-info">
-      <small>REGIÃO</small>
 
-      <h3>Ásia</h3>
+      <small>
+        REGIÃO
+      </small>
+
+      <h3>
+        Ásia
+      </h3>
 
       <p>
         Uma mistura de culturas,
         sabores e tradições.
       </p>
+
     </div>
+
   </article>
 
 </div>
+
+
 <!-- RESULTADO DA REGIÃO -->
 
 <div
@@ -254,7 +290,10 @@
 >
 
   <div class="region-result-header">
-    <span>REGIÃO SELECIONADA</span>
+
+    <span>
+      REGIÃO SELECIONADA
+    </span>
 
     <h2>
       {{ regiaoSelecionada }}
@@ -262,8 +301,9 @@
 
     <p>
       Países encontrados nessa região:
-      {{ paisesRegiao.length }}
+      <strong>{{ paisesRegiao.length }}</strong>
     </p>
+
   </div>
 
 
@@ -279,7 +319,7 @@
         [alt]="'Bandeira de ' + pais.names.common"
       >
 
-      <div>
+      <div class="region-country-info">
 
         <h3>
           {{ pais.names.common }}
@@ -296,3 +336,24 @@
   </div>
 
 </div>
+```
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+```
+<span>
+  ◉ EXPLORE O MUNDO
+</span>
+
+<p>
+  Conheça o planeta, um país de cada vez.
+</p>
+```
+
+  </footer>
+
+</main>
