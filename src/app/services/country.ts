@@ -6,9 +6,16 @@ export interface CountryData {
   names: {
     common: string;
     official: string;
+    native?: {
+      [key: string]: {
+        common: string;
+        official: string;
+      };
+    };
   };
 
   codes: {
+    alpha_2: string;
     alpha_3: string;
   };
 
@@ -20,12 +27,11 @@ export interface CountryData {
   }[];
 
   region: string;
-
   subregion?: string;
-
   population: number;
 
   flag: {
+    description?: string;
     emoji?: string;
     url_png?: string;
     url_svg?: string;
@@ -34,6 +40,7 @@ export interface CountryData {
   languages?: {
     name: string;
     native_name?: string;
+    iso639_1?: string;
   }[];
 
   currencies?: {
@@ -41,6 +48,11 @@ export interface CountryData {
     name: string;
     symbol?: string;
   }[];
+
+  area?: {
+    kilometers?: number;
+    miles?: number;
+  };
 }
 
 interface ApiResponse {
@@ -56,16 +68,15 @@ export class CountryService {
 
   private apiUrl = '/api/pais';
 
-  constructor(
-    private http: HttpClient
-  ) {}
+  constructor(private http: HttpClient) {}
 
   buscarPais(nome: string): Observable<CountryData[]> {
+
+    console.log('BUSCANDO PAÍS:', nome);
 
     const url =
       `${this.apiUrl}?nome=${encodeURIComponent(nome)}`;
 
-    console.log('BUSCANDO PAÍS:', nome);
     console.log('URL DO BACKEND:', url);
 
     return this.http
