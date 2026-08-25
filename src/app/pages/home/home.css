@@ -614,3 +614,168 @@ footer p {
     gap: 8px;
   }
 }
+/* RESULTADO DO PAÍS */
+
+.resultado-pais {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 70px 0;
+}
+
+.resultado-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+
+  padding: 45px;
+
+  background: white;
+
+  border-radius: 28px;
+
+  box-shadow: 0 15px 40px rgba(23, 63, 69, .10);
+}
+
+.resultado-bandeira {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 330px;
+  min-width: 330px;
+  height: 220px;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background: #e7f2ed;
+}
+
+.resultado-bandeira img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.resultado-info {
+  flex: 1;
+}
+
+.resultado-info > span {
+  color: #3f8f5b;
+
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.resultado-info h2 {
+  margin: 10px 0 5px;
+
+  color: #173f45;
+
+  font-family: 'Outfit', sans-serif;
+  font-size: 48px;
+  line-height: 1;
+}
+
+.resultado-info > p {
+  margin: 0 0 30px;
+
+  color: #728487;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.dados-pais {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+.dados-pais div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dados-pais small {
+  color: #3f8f5b;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.dados-pais strong {
+  color: #173f45;
+
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+}
+
+
+/* ERRO */
+
+.resultado-pais + .explore {
+  padding-top: 30px;
+}
+
+
+@media (max-width: 900px) {
+
+  .resultado-pais {
+    width: calc(100% - 48px);
+  }
+
+  .resultado-conteudo {
+    flex-direction: column;
+
+    gap: 35px;
+
+    padding: 30px;
+  }
+
+  .resultado-bandeira {
+    width: 100%;
+    min-width: 0;
+    max-width: 450px;
+  }
+
+  .resultado-info {
+    width: 100%;
+  }
+
+}
+
+
+@media (max-width: 550px) {
+
+  .resultado-pais {
+    width: calc(100% - 32px);
+    padding: 50px 0;
+  }
+
+  .resultado-conteudo {
+    padding: 22px;
+  }
+
+  .resultado-bandeira {
+    height: 180px;
+  }
+
+  .resultado-info h2 {
+    font-size: 38px;
+  }
+
+  .dados-pais {
+    grid-template-columns: 1fr;
+  }
+
+}
