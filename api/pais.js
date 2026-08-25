@@ -1,12 +1,7 @@
 export default async function handler(req, res) {
   try {
     const nome = req.query.nome;
-
-    if (!nome) {
-      return res.status(400).json({
-        error: 'Informe o nome do país.'
-      });
-    }
+    const regiao = req.query.regiao;
 
     const apiKey = process.env.REST_COUNTRIES_API_KEY;
 
@@ -16,11 +11,27 @@ export default async function handler(req, res) {
       });
     }
 
-    const url =
-      'https://api.restcountries.com/countries/v5?q=' +
-      encodeURIComponent(nome) +
-      '&api-key=' +
-      apiKey;
+    let url = 'https://api.restcountries.com/countries/v5';
+
+    if (nome) {
+      url =
+        'https://api.restcountries.com/countries/v5?q=' +
+        encodeURIComponent(nome) +
+        '&api-key=' +
+        apiKey;
+    } else if (regiao) {
+      url =
+        'https://api.restcountries.com/countries/v5?region=' +
+        encodeURIComponent(regiao) +
+        '&api-key=' +
+        apiKey;
+    } else {
+      return res.status(400).json({
+        error: 'Informe o nome do país ou a região.'
+      });
+    }
+
+    console.log('URL REST COUNTRIES:', url);
 
     const response = await fetch(url);
     const data = await response.json();
