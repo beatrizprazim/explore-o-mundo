@@ -16,6 +16,10 @@ export class Home {
 
   resultado: CountryData | null = null;
 
+  paisesRegiao: CountryData[] = [];
+
+  regiaoSelecionada: string = '';
+
   carregando: boolean = false;
 
   erro: string = '';
@@ -35,10 +39,13 @@ export class Home {
     this.carregando = true;
     this.erro = '';
     this.resultado = null;
+    this.paisesRegiao = [];
+    this.regiaoSelecionada = '';
 
     this.countryService
       .buscarPais(this.paisBusca.trim())
       .subscribe({
+
         next: (paises: CountryData[]) => {
 
           console.log('2 - RESPOSTA RECEBIDA:', paises);
@@ -67,9 +74,50 @@ export class Home {
 
           this.carregando = false;
 
-          this.erro = 'Não encontramos esse país. Tente novamente.';
+          this.erro =
+            'Não encontramos esse país. Tente novamente.';
 
         }
+
       });
   }
+
+  explorarRegiao(regiao: string): void {
+
+    console.log('BUSCANDO REGIÃO:', regiao);
+
+    this.carregando = true;
+    this.erro = '';
+    this.resultado = null;
+    this.paisesRegiao = [];
+    this.regiaoSelecionada = regiao;
+
+    this.countryService
+      .buscarRegiao(regiao)
+      .subscribe({
+
+        next: (paises: CountryData[]) => {
+
+          console.log('PAÍSES DA REGIÃO:', paises);
+
+          this.carregando = false;
+
+          this.paisesRegiao = paises;
+
+        },
+
+        error: (error) => {
+
+          console.error('ERRO AO BUSCAR REGIÃO:', error);
+
+          this.carregando = false;
+
+          this.erro =
+            'Não foi possível carregar os países dessa região.';
+
+        }
+
+      });
+  }
+
 }

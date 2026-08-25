@@ -85,4 +85,20 @@ export class CountryService {
         map(response => response.data.objects)
       );
   }
+
+  buscarRegiao(regiao: string): Observable<CountryData[]> {
+
+    console.log('BUSCANDO REGIÃO:', regiao);
+
+    const url =
+      `${this.apiUrl}?regiao=${encodeURIComponent(regiao)}`;
+
+    console.log('URL DO BACKEND:', url);
+
+    return this.http
+      .get<ApiResponse>(url)
+      .pipe(
+        map(response => response.data.objects)
+      );
+  }
 }
