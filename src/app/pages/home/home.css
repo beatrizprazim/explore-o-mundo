@@ -867,64 +867,106 @@ footer p {
   font-size: 13px;
   font-weight: 700;
 }
-/* RESULTADO DA REGIÃO */
+/* =========================================
+   RESULTADO DA REGIÃO
+   ========================================= */
 
 .region-result {
+  display: block;
+  width: 100%;
   margin-top: 50px;
   padding: 35px;
-  background: white;
+
+  background: #ffffff;
+
+  border: 2px solid #167b98;
   border-radius: 24px;
+
   box-shadow: 0 15px 35px rgba(23, 63, 69, .10);
+
+  position: relative;
+  z-index: 10;
 }
 
 .region-result-header {
+  display: block;
   margin-bottom: 25px;
 }
 
 .region-result-header > span {
+  display: block;
+
   color: #3f8f5b;
+
   font-family: 'Outfit', sans-serif;
   font-size: 11px;
   font-weight: 800;
+
   letter-spacing: 2px;
 }
 
 .region-result-header h2 {
+  display: block;
+
   margin: 8px 0 5px;
 
   color: #173f45;
 
   font-family: 'Outfit', sans-serif;
   font-size: 36px;
+  font-weight: 700;
 }
 
 .region-result-header p {
+  display: block;
+
   margin: 0;
+
   color: #728487;
+
   font-size: 14px;
   font-weight: 600;
 }
 
+
+/* LISTA DE PAÍSES */
+
 .region-countries {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 16px;
+
+  width: 100%;
 }
+
 
 .region-country {
   display: flex;
   align-items: center;
+
   gap: 15px;
+
+  min-height: 80px;
 
   padding: 16px;
 
+  background: #f7faf8;
+
   border: 1px solid rgba(23, 63, 69, .08);
+
   border-radius: 16px;
 
-  background: #fffdf8;
+  box-shadow: 0 5px 15px rgba(23, 63, 69, .05);
 }
 
+
 .region-country img {
+  display: block;
+
+  flex-shrink: 0;
+
   width: 70px;
   height: 48px;
 
@@ -935,6 +977,12 @@ footer p {
   box-shadow: 0 4px 10px rgba(0, 0, 0, .10);
 }
 
+
+.region-country > div {
+  min-width: 0;
+}
+
+
 .region-country h3 {
   margin: 0 0 5px;
 
@@ -942,7 +990,9 @@ footer p {
 
   font-family: 'Outfit', sans-serif;
   font-size: 18px;
+  font-weight: 700;
 }
+
 
 .region-country p {
   margin: 0;
@@ -954,7 +1004,7 @@ footer p {
 }
 
 
-/* CARDS CLICÁVEIS */
+/* CARD CLICÁVEL */
 
 .card {
   cursor: pointer;
@@ -975,9 +1025,11 @@ footer p {
 
 }
 
+
 @media (max-width: 550px) {
 
   .region-result {
+    margin-top: 30px;
     padding: 22px;
   }
 
@@ -985,130 +1037,4 @@ footer p {
     grid-template-columns: 1fr;
   }
 
-}
-.region-result {
-  display: block;
-  width: 100%;
-  margin-top: 40px;
-  padding: 30px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.region-result-header {
-  margin-bottom: 25px;
-}
-
-.region-result-header span {
-  color: #3f8f5b;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-.region-result-header h2 {
-  margin: 8px 0;
-  font-family: 'Outfit', sans-serif;
-  font-size: 36px;
-  color: #173f45;
-}
-
-.region-result-header p {
-  margin: 0;
-  color: #728487;
-}
-
-.region-countries {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.region-country {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 15px;
-  background: #f7faf8;
-  border-radius: 14px;
-}
-
-.region-country img {
-  width: 70px;
-  height: 45px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-.region-country h3 {
-  margin: 0 0 5px;
-  color: #173f45;
-  font-family: 'Outfit', sans-serif;
-  font-size: 18px;
-}
-
-.region-country p {
-  margin: 0;
-  color: #728487;
-  font-size: 13px;
-}
-
-@media (max-width: 900px) {
-  .region-countries {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 550px) {
-  .region-countries {
-    grid-template-columns: 1fr;
-  }
-}
-.region-result {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  width: 100%;
-  margin-top: 40px;
-  padding: 30px;
-  background: white;
-  border: 3px solid #167b98;
-  border-radius: 20px;
-  position: relative;
-  z-index: 100;
-}
-
-.region-result-header {
-  display: block !important;
-  color: #173f45;
-}
-
-.region-result-header h2 {
-  color: #173f45;
-  font-size: 36px;
-  margin: 10px 0;
-}
-
-.region-countries {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.region-country {
-  display: flex !important;
-  align-items: center;
-  gap: 15px;
-  padding: 15px;
-  background: #f7faf8;
-  border-radius: 15px;
-}
-
-.region-country img {
-  display: block !important;
-  width: 70px;
-  height: 45px;
-  object-fit: cover;
 }
